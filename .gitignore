@@ -89,4 +89,4 @@ ENV/
 .ropeproject
 
 # Not-for-share info
-./notes.txt
+notes.txt
