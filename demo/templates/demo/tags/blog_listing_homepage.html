@@ -1,0 +1,11 @@
+{% if blogs %}
+<section class="no-padding" id="portfolio">
+    <div class="container-fluid">
+        <div class="row no-gutter popup-gallery">
+	      {% for blog in blogs %}
+	        {% include "demo/includes/blog_list_item.html" %}
+	      {% endfor %}
+	  </div>
+  </div>
+</section>
+{% endif %}

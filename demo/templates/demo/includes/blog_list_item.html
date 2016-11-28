@@ -1,0 +1,23 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{# Individual blog item in a list - used on blog index and home page #}
+<div class="col-lg-4 col-sm-6">
+  <a class="portfolio-box" href="{% pageurl blog %}">
+    {% if blog.feed_image %}
+        {% image blog.feed_image width-400 as img %}
+        <img  class="img-responsive" alt="" src="{{ img.url }}" width="100%" />
+    {% endif %}
+    <div class="portfolio-box-caption">
+        <div class="portfolio-box-caption-content">
+            <div class="project-category text-faded">
+                {{ blog.title }}, {{ blog.date }}
+            </div>
+            <div class="project-name">
+                {% if blog.search_description %}
+                  {{ blog.search_description|truncatewords:"4" }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+  </a>
+</div>

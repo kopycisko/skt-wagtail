@@ -1,1 +1,14 @@
-notes
+1) Installing pip on remote (SKT) server via
+> python get-pip.py
+2) Clone repository
+> git clone https://github.com/kopycisko/skt-wagtail
+3) Install requirements as sudo from rsztandera user account from skt-wagtail repo
+> pip install -r requirements.txt
+4) Create new mysql database for wagtail
+4.1) Reset root password
+new password: ?A+4m/K5VSg`7e4t
+> update user set Password=PASSWORD('?A+4m/K5VSg`7e4t') WHERE User='root';
+4.2) Create database and user for wagtail
+new password: YE6v%-D_5MrQY@xM
+mysql -u root -p?A+4m/K5VSg`7e4t -e "create database skt_wagtail; GRANT ALL PRIVILEGES ON skt_wagtail.* TO skt_wagtail_user@localhost IDENTIFIED BY 'YE6v%-D_5MrQY@xM'"
+
