@@ -1,0 +1,17 @@
+{% load demo_tags wagtailcore_tags %}
+{% get_site_root as site_root %}
+
+{# plain menu #}
+<ul class="nav navbar-nav">
+{% for menuitem in menuitems %}
+    <li class="{% if menuitem.active %} active{% endif %}">
+        {% if menuitem.show_dropdown %}
+            <a data-toggle="dropdown" class="dropdown-toggle page-scroll" href="#">{{ menuitem.title }} <b class="caret"></b></a>
+            {% top_menu_children parent=menuitem %}
+        {% else %}
+            <a class="page-scroll" href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+        {% endif %}
+    </li>
+{% endfor %}
+
+</ul>
