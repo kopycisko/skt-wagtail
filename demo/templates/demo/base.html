@@ -75,9 +75,29 @@
 
         {% include 'demo/includes/prev_next.html' %}
 
-        <section class="bg-dark">
+
+        <div class="container bg-dark">
+            <div class="sidebar-column col-md-6 col-sm-6">
+                <h2>Facebook</h2>
+                <div class="fb-page"
+                    data-href="https://www.facebook.com/SKT.PWr/"
+                    data-tabs="timeline"
+                    data-small-header="false"
+                    data-adapt-container-width="true"
+                    data-hide-cover="false"
+                    data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/SKT.PWr/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/SKT.PWr/">Cap&#039;n Studencki Klub Turystyczny PWr</a></blockquote>
+                </div>
+            </div>
+            <div class="sidebar-column col-md-6 col-sm-6">
+                <h2>Newsletter</h2>
+                <form action="http://groups.google.com/group/skt-newsletter/boxsubscribe" class="form-group">
+                <input type="text" name="email" placeholder="Podaj swój email..." class="form-control">
+                <input type="submit" name="sub" value="Zapisz się!" class="btn btn-default pull-right"><input type="hidden" name="hl" value="pl"></form>
+            </div>
+        </div>
+
         {% adverts %}
-        </section>
 
         {# External javascript #}
         <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -96,6 +116,16 @@
             <script src="{% static "demo/js/magnific-popup/jquery.magnific-popup.min.js" $}"></script>
             <script src="{% static "demo/js/creative/creative.js" %}"></script>
         {% endblock %} {# Override this block in individual templates in order to add javascript on a template by template basis #}
+
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_PI/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
     </body>
 </html>
