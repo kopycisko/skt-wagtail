@@ -7,6 +7,14 @@ html,
 body {
   height: 100%;
   width: 100%;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('../images/header-forest.jpg');
+     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
@@ -37,17 +45,38 @@ h5,
 h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
+.footer-heading {
+  text-indent:0.1em;
+  margin-bottom:0.5em;
+  margin-top:1.5em;
+}
 p {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 20px;
 }
 .bg-primary {
-  background-color: #F05F40;
+  background-color: rgba(240,95,64,0.8);
 }
 .bg-dark {
-  background-color: #222222;
+  background-color: rgba(45, 45, 45, 0.8);
   color: white;
+}
+.bg-bright {
+  background-color:rgba(255, 255, 255, 0.8);
+  color: #222222;
+}
+.copyright {
+	padding: 15px 0;
+	background-color: rgba(12, 12, 12, 0.2);
+	font-size: 12px;
+	line-height: 10px
+}
+.social-icons i{
+    font-size: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    width: 1.5em;
 }
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
@@ -60,6 +89,16 @@ aside {
 }
 .no-padding {
   padding: 0;
+}
+.footer-nav li {
+    display: block;
+}
+.footer-nav li:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\f1ae";
+    font-family: "FontAwesome";
+    margin-left: 1.5em;
+    color: #CCCCCC;
 }
 .navbar-default {
   background-color: white;
@@ -150,12 +189,6 @@ header {
   position: relative;
   width: 100%;
   min-height: auto;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  background-position: center;
-  background-image: url('../images/header-forest.jpg');
   text-align: center;
   color: white;
 }

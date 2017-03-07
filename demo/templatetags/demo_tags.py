@@ -137,15 +137,6 @@ def event_listing_homepage(context, count=2):
     }
 
 
-# Advert snippets
-@register.inclusion_tag('demo/tags/adverts.html', takes_context=True)
-def adverts(context):
-    return {
-        'adverts': Advert.objects.select_related('page'),
-        'request': context['request'],
-    }
-
-
 @register.inclusion_tag('demo/tags/breadcrumbs.html', takes_context=True)
 def breadcrumbs(context):
     self = context.get('self')
