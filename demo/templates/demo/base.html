@@ -61,12 +61,15 @@
 
         <header>
         <div class="header-content">
-                <div class="header-content-inner">
-                {% block heading %}
+            <div class="header-content-inner">
+            {% block heading %}
                 <img src="{% static "demo/images/header-skt-logo.png" %}" />
                 <hr>
-                <a href="." class="page-scroll btn btn-default btn-xl sr-button"> Odlotowe wyjazdy w góry i nie tylko. Dla każdego!</a>
-                {% endblock %}
+                <div class="intro-text btn btn-default btn-xl sr-button">
+                <div class="rich-text"><p>
+                    Odlotowe wyjazdy w góry i nie tylko. Dla każdego!
+                </p></div></div>
+            {% endblock %}
             </div>
         </div>
         </header>
@@ -74,28 +77,6 @@
         {% block content %}{% endblock %}
 
         {% include 'demo/includes/prev_next.html' %}
-
-
-        <!-- <div class="container bg-dark"> -->
-       <!--      <div class="sidebar-column col-md-6 col-sm-6">
-                <h2>Facebook</h2>
-                <div class="fb-page"
-                    data-href="https://www.facebook.com/SKT.PWr/"
-                    data-tabs="timeline"
-                    data-small-header="false"
-                    data-adapt-container-width="true"
-                    data-hide-cover="false"
-                    data-show-facepile="true">
-                    <blockquote cite="https://www.facebook.com/SKT.PWr/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/SKT.PWr/">Cap&#039;n Studencki Klub Turystyczny PWr</a></blockquote>
-                </div>
-            </div>
-            <div class="sidebar-column col-md-6 col-sm-6">
-                <h2>Newsletter</h2>
-                <form action="http://groups.google.com/group/skt-newsletter/boxsubscribe" class="form-group">
-                <input type="text" name="email" placeholder="Podaj swój email..." class="form-control">
-                <input type="submit" name="sub" value="Zapisz się!" class="btn btn-default pull-right"><input type="hidden" name="hl" value="pl"></form>
-            </div>
-        </div> -->
 
         <div class="bg-dark">
           <footer>
@@ -124,15 +105,16 @@
                   </div>
                   <div class="newsletter">
                     <h4 class="footer-heading"><i class="fa fa-pied-piper-alt"></i> Newsletter - email z pierwszej ręki!</h4>
-                    <form class="newsletter-form" method="POST">
+                    <form class="newsletter-form" action="http://groups.google.com/group/skt-newsletter/boxsubscribe">
                       <div class="input-group">
                         <input type="email" class="form-control" name="email" placeholder="adres@email.pl">
                         <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button"><span>Zapisz</span></button>
-                        </span> </div>
+                        <input type="submit" name="sub" class="btn btn-primary" value="Zapisz">
+                        </span>
+                      </div>
+                        <input type="hidden" name="hl" value="pl">
                     </form>
                   </div>
-
 
                 </div>
               <div class="col-md-4">

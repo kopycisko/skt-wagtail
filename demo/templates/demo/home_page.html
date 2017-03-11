@@ -1,5 +1,5 @@
 {% extends "demo/base.html" %}
-{% load demo_tags %}
+{% load static demo_tags %}
 
 {% block content %}
 
@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Klub w czterech zdaniach</h2>
+                    <h2 class="section-heading">SKT w czterech zdaniach</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -58,7 +58,7 @@
 
 
     {% if self.body %}
-    <section class="bg-primary" id="about">
+    <section class="bg-bright" id="homepage_body">
         <div class="container">
             {% include "demo/includes/streamfield.html" with content=self.body %}
         </div>

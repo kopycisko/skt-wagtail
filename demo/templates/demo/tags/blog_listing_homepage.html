@@ -1,7 +1,16 @@
 {% if blogs %}
-<section class="no-padding" id="portfolio">
+<section class="bg-primary" id="last_relations">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Ostatnie relacje</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
-        <div class="row no-gutter popup-gallery">
+        <div class="row no-gutter">
 	      {% for blog in blogs %}
 	        {% include "demo/includes/blog_list_item.html" %}
 	      {% endfor %}
