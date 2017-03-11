@@ -1,0 +1,24 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{# Individual event lieader item in a list - used on event page #}
+<div class="col-lg-4 col-sm-6">
+
+  <a class="portfolio-box" {% if speaker.link %}href="{{ speaker.link }}"{% endif %}>
+
+    {% if speaker.image %}
+        {% image speaker.image width-400 as img %}
+        <div class="portfolio-box-aspect" style="background-image: url({{ img.url }});"></div>
+    {% else %}
+        {% load static %}
+        <div class="portfolio-box-aspect" style="background-image: url({% static "demo/images/leader_default.jpg" %});"></div>
+    {% endif %}
+    <div class="portfolio-box-caption">
+        <div class="portfolio-box-caption-content">
+            <div class="project-name">
+                {{ speaker.name_display }}
+            </div>
+        </div>
+    </div>
+  </a>
+</div>
+

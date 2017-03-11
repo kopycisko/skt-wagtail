@@ -26,9 +26,14 @@
     {% include "demo/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
 
     {% if self.body %}
-        <div class="body-content bg-bright">
+      <div class="container">
+        <div class="row">
+          <div class="bg-bright col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             {% include "demo/includes/streamfield.html" with content=self.body %}
+          </div>
         </div>
+      </div>
+
     {% endif %}
 
     {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}

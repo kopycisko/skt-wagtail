@@ -17,8 +17,9 @@ body {
     background-attachment: fixed;
 }
 body {
-  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  webkit-tap-highlight-color: #222222;
 }
+
 hr {
   border-color: #F05F40;
   border-width: 3px;
@@ -45,6 +46,7 @@ h5,
 h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
+
 .footer-heading {
   text-indent:0.1em;
   margin-bottom:0.5em;
@@ -53,7 +55,6 @@ h6 {
 p {
   font-size: 16px;
   line-height: 1.5;
-  margin-bottom: 20px;
 }
 .bg-primary {
   background-color: rgba(240,95,64,0.8);
@@ -469,6 +470,4 @@ img::-moz-selection {
   color: white;
   background: transparent;
 }
-body {
-  webkit-tap-highlight-color: #222222;
-}
+
