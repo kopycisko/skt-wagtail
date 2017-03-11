@@ -306,6 +306,14 @@ div.portfolio-box-aspect {
   top: 50%;
   transform: translateY(-50%);
 }
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content-bottom {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 1%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
