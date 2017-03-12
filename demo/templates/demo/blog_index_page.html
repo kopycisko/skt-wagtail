@@ -7,6 +7,7 @@
 
 {% block content %}
 
+    <section id="blog_list">
     {% if request.GET.tag|length %}
         <h4>Showing posts tagged as {{ request.GET.tag|safe }} <a href=" {% pageurl self %} ">Show all</a></h4>
     {% endif %}
@@ -17,7 +18,7 @@
         {% for blog in blogs %}
             {% include "demo/includes/blog_list_item.html" %}
         {% empty %}
-            No blogs found
+            Nie znaleziono wpisow.
         {% endfor %}
     </div>
 
@@ -38,6 +39,7 @@
             {% endif %}
         </div>
     </div>
+    </section>
 
     {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}
 {% endblock %}

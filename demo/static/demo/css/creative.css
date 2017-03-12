@@ -335,7 +335,7 @@ div.portfolio-box-aspect {
   font-size: 14px;
 }
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
-  font-size: 18px;
+  font-size: 12px;
 }
 .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
@@ -349,7 +349,7 @@ div.portfolio-box-aspect {
     font-size: 16px;
   }
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
-    font-size: 22px;
+    font-size: 14px;
   }
 }
 .call-to-action h2 {
