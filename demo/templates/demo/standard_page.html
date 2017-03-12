@@ -1,16 +1,20 @@
 {% extends "demo/base.html" %}
-
 {% load wagtailcore_tags %}
 
-{% block content %}
+{% block heading %}
     {% include "demo/includes/intro.html" with intro=self.intro only %}
+{% endblock %}
+
+{% block content %}
 
     {% include "demo/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
 
     {% if self.body %}
-        <div class="body-content">
+    <aside class="bg-bright">
+        <div class="body-content container">
             {{ self.body|richtext }}
         </div>
+    </aside>
     {% endif %}
 
     {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}
