@@ -4,9 +4,9 @@
 <div class="container-fluid animatedParent contact-map bg-dark" id="map_canvas"
 
     {%  if contact.address_1 and contact.city %}
-        style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{ contact.city }},{{ contact.address_1 }}&amp;zoom=13&amp;size=1200x200&amp;maptype=roadmap&amp;sensor=false&amp;markers=color:green|{{ contact.address_1 }}{% if google_maps_key %}&amp;key={{ google_maps_key }}{% endif %}');"
+        style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{ contact.city }},{{ contact.address_1 }}&amp;zoom=13&amp;size=1200x400&amp;maptype=roadmap&amp;sensor=false&amp;markers=color:green|{{ contact.address_1 }}{% if google_maps_key %}&amp;key={{ google_maps_key }}{% endif %}');"
     {% else %}
-        style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=wroclaw&amp;zoom=12&amp;size=1200x200&amp;sensor=false{% if google_maps_key %}&amp;key={{ google_maps_key }}{% endif %}');"
+        style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=wroclaw&amp;zoom=12&amp;size=1200x400&amp;sensor=false{% if google_maps_key %}&amp;key={{ google_maps_key }}{% endif %}');"
     {% endif %}
     >
 
@@ -14,7 +14,7 @@
         <div class="col-md-4 bg-dark" style="padding: 0 5%">
           <!-- COLUMN 1 -->
           <aside id="contact-addr-frame">
-            <h4 class="footer-heading"><i class="fa fa-pied-piper-alt"></i> Dane namiarowe: </h4>
+            <h4 class="footer-heading"><i class="fa fa-pied-piper-alt"></i> Kontakt: </h4>
 
             {% if contact.address_1 %}
                 <dt>Adres </dt>
