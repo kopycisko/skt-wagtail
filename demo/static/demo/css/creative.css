@@ -465,7 +465,6 @@ fieldset[disabled] .btn-primary.active {
   border: none;
   border-radius: 300px;
   font-weight: 700;
-  text-transform: uppercase;
 }
 .btn-xl {
   padding: 15px 30px;
