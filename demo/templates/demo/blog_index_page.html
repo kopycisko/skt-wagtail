@@ -24,7 +24,7 @@
 
     {# Pagination - uses django.core.paginator #}
     {# Append any other url query string variables to the next and previous links - allows tag to be passed through #}
-    <div class="row bg-primary">
+    <div class="row bg-bright">
         <div class="col-sm-4 previous">
             {% if blogs.has_previous %}
                 <a href="?page={{ blogs.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&amp;{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">Poprzednia</a>

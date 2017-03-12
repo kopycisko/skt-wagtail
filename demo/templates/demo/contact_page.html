@@ -1,6 +1,15 @@
 {% extends "demo/base.html" %}
 
-{% load demo_tags wagtailcore_tags %}
+{% load demo_tags wagtailcore_tags static %}
+
+{% block heading %}
+    <img src="{% static "demo/images/header-skt-logo.png" %}" />
+    <hr>
+    <div class="intro-text btn btn-default btn-xl sr-button">
+    <div class="rich-text"><p>
+        Email, telefony, adres siedziby
+    </p></div></div>
+{% endblock %}
 
 {% block content %}
     <aside>

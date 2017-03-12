@@ -7,14 +7,24 @@
 
 {% block content %}
 
-    {% include "demo/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
+    {% if self.carousel_items.all %}
+    <div class="container">
+    <div class="row">
+    <div class="bg-bright col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 no-padding">
+        {% include "demo/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
+    </div>
+    </div>
+    </div>
+    {% endif %}
 
     {% if self.body %}
-    <aside class="bg-bright">
-        <div class="body-content container">
-            {{ self.body|richtext }}
-        </div>
-    </aside>
+    <div class="container">
+    <div class="row">
+    <div class="bg-bright col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        {{ self.body|richtext }}
+    </div>
+    </div>
+    </div>
     {% endif %}
 
     {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}

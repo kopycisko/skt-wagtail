@@ -36,8 +36,11 @@
         distance: '0px'
     }, 200);
     sr.reveal('.sr-button', {
-        duration: 1000,
-        delay: 200
+        opacity:  0.5,
+        mobile:   true,
+        reset:    true,
+        vFactor:  0.60,
+        duration: 1000
     });
     sr.reveal('.sr-contact', {
         duration: 600,
