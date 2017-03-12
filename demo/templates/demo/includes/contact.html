@@ -1,35 +1,37 @@
-<div class="page-header"><h3>Contact</h3></div>
-<div class="row">
-    <dl>
-        <div class="col-sm-4">
+{% load demo_tags wagtailcore_tags %}
+
+<div class="container-fluid animatedParent contact-map bg-dark"
+    {%  if contact.post_code %}
+        {% get_google_maps_key as google_maps_key %}
+
+        style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{ contact.city }},{{ contact.address_1 }}&amp;zoom=13&amp;size=1200x400&amp;maptype=roadmap&amp;sensor=false&amp;markers=color:green|{{ contact.address_1 }}{% if google_maps_key %}&amp;key={{ google_maps_key }}{% endif %}');"
+    {% endif %}
+    >
+
+    <div class="row animated fadeInDownShort go">
+        <div class="col-md-4 bg-dark" style="padding: 0 5%">
+          <!-- COLUMN 1 -->
+          <aside id="contact-addr-frame">
+            <h4 class="footer-heading"><i class="fa fa-pied-piper-alt"></i> Znajdziesz nas tutaj </h4>
+
             {% if contact.address_1 %}
-                <dt>Address 1</dt>
-                <dd>{{ contact.address_1 }}</dd>
+                <dt>Adres </dt>
+                <dd>
+                {{ contact.address_1 }},
+                {% if contact.post_code %}{{ contact.post_code }} {% endif %}
+                {% if contact.city %}{{ contact.city }}, {% endif %}
+                {% if contact.country %}{{ contact.country }}{% endif %}
+                </dd>
             {% endif %}
 
             {% if contact.address_2 %}
-                <dt>Address 2</dt>
+                <dt>Sala/budynek</dt>
                 <dd>{{ contact.address_2 }}</dd>
             {% endif %}
 
-            {% if contact.city %}
-                <dt>City</dt>
-                <dd>{{ contact.city }}</dd>
-            {% endif %}
 
-            {% if contact.country %}
-                <dt>Country</dt>
-                <dd>{{ contact.country }}</dd>
-            {% endif %}
-
-            {% if contact.post_code %}
-                <dt>Post code</dt>
-                <dd>{{ contact.post_code }}</dd>
-            {% endif %}
-        </div>
-        <div class="col-sm-4">
             {% if contact.telephone %}
-                <dt>Telephone</dt>
+                <dt>Telefon</dt>
                 <dd>{{ contact.telephone }}</dd>
             {% endif %}
 
@@ -37,8 +39,13 @@
                 <dt>Email</dt>
                 <dd>{{ contact.email }}</dd>
             {% endif %}
+
+          </aside>
+
         </div>
-        <div class="col-sm-4">
-        </div>
-    </dl>
+      <div class="col-md-8">
+          <!-- COLUMN 2 -->
+
+       </div>
+    </div>
 </div>

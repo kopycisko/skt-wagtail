@@ -27,8 +27,8 @@ from demo.utils import export_event
 
 
 EVENT_AUDIENCE_CHOICES = (
-    ('public', "Public"),
-    ('private', "Private"),
+    ('otwarte', "Otwarte"),
+    ('klubowe', "Klubowe"),
 )
 
 # Global Streamfield definition
@@ -378,7 +378,19 @@ class BlogPageTag(TaggedItemBase):
 class BlogPage(Page):
     body = StreamField(DemoStreamBlock())
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
-    date = models.DateField("Post date")
+    date = models.DateField("Data sporzadzenia relacji")
+    date_from = models.DateField("Data poczatku wydarzenia")
+    date_to = models.DateField(
+        "Data konca wydarzenia",
+        null=True,
+        blank=True,
+        help_text="Nie wymagane, jesli wydarzenie jednodniowe"
+    )
+    time_from = models.TimeField("Godzina poczatku", null=True, blank=True)
+    time_to = models.TimeField("Godzina konca", null=True, blank=True)
+    participants = models.CharField("Ilosc uczestnikow", max_length=255, blank=True)
+    leaders = models.CharField("Przewodnik, osoby organizujace", max_length=255, null=True, blank=True)
+    location = models.CharField("Miejsce wydarzenia", max_length=255, null=True, blank=True)
     feed_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -399,6 +411,13 @@ class BlogPage(Page):
 BlogPage.content_panels = [
     FieldPanel('title', classname="full title"),
     FieldPanel('date'),
+    FieldPanel('date_from'),
+    FieldPanel('date_to'),
+    FieldPanel('time_from'),
+    FieldPanel('time_to'),
+    FieldPanel('participants'),
+    FieldPanel('leaders'),
+    FieldPanel('location'),
     StreamFieldPanel('body'),
     InlinePanel('carousel_items', label="Carousel items"),
     InlinePanel('related_links', label="Related links"),
@@ -557,20 +576,20 @@ class EventPageSpeaker(Orderable, LinkFields):
 
 
 class EventPage(Page):
-    date_from = models.DateField("Start date")
+    date_from = models.DateField("Data poczatku wydarzenia")
     date_to = models.DateField(
-        "End date",
+        "Data konca wydarzenia",
         null=True,
         blank=True,
-        help_text="Not required if event is on a single day"
+        help_text="Nie wymagane, jesli wydarzenie jednodniowe"
     )
-    time_from = models.TimeField("Start time", null=True, blank=True)
-    time_to = models.TimeField("End time", null=True, blank=True)
-    audience = models.CharField(max_length=255, choices=EVENT_AUDIENCE_CHOICES)
-    location = models.CharField(max_length=255)
+    time_from = models.TimeField("Godzina poczatku", null=True, blank=True)
+    time_to = models.TimeField("Godzina konca", null=True, blank=True)
+    audience = models.CharField("Zakres wydarzenia", max_length=255, choices=EVENT_AUDIENCE_CHOICES)
+    location = models.CharField("Miejsce wydarzenia", max_length=255)
     body = RichTextField(blank=True)
-    cost = models.CharField(max_length=255)
-    signup_link = models.URLField(blank=True)
+    cost = models.CharField("Koszty wyjazdu", max_length=255, blank=True)
+    signup_link = models.URLField("Link do formularza zapisowego", blank=True)
     feed_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
