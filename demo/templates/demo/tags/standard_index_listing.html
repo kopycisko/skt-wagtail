@@ -1,13 +1,35 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 {% if pages %}
+
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
     <div class="list-group">
         {% for page in pages %}
             <a class="list-group-item" href="{% pageurl page %}">
+
+                {% if page.feed_image %}
+                <div class="col-md-3 text-center">
+                    {% image page.feed_image fill-40x40 class="img-thumbnail" %}
+                </div>
+                <div class="col-md-9">
+                {% endif %}
+
                 <h4 class="list-group-item-heading">{{ page.title }}</h4>
                 {% if page.search_description %}
                     <p class="list-group-item-text">{{ page.search_description }}</p>
                 {% endif %}
+
+                {% if page.feed_image %}
+                </div>
+                {% endif %}
+
             </a>
         {% endfor %}
+    </div>
+
+    </div>
+    </div>
     </div>
 {% endif %}

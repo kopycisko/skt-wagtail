@@ -16,19 +16,73 @@
 
     <h2>
       {{ self.title }}
-      {% if self.date %}<small>{{ self.date }}</small>{% endif %}
+      {% if self.date %}<span style="display:none">{{ self.date }}</span>{% endif %}
     </h2>
+
+    <p style="text-align:center">{{ self.date_from }}{% if self.date_to %} - {{ self.date_to }}{% endif %}; {{ self.location }}</p>
 
   </div>
 {% endblock %}
 
 {% block content %}
-    {% include "demo/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
+
+
+    <div class="container">
+    <div class="row">
+    <div class="bg-primary col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <aside id="event-summary">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">W skrócie</h2>
+                <hr class="primary">
+            </div>
+        </div>
+
+        <ul>
+          <li>Czas:
+              {{ self.date_from }} {% if self.time_from %} (godz. {{ self.time_from|time }}) {% endif %}
+
+              {% if self.date_to %} - {{ self.date_to }}{% endif %}
+              {% if self.time_to %} (godz. {{ self.time_to|time }}) {% endif %}</li>
+
+        {% if self.location %}
+          <li>Miejsce: {{ self.location }}</li>
+        {% endif %}
+
+        {% if self.participants %}
+          <li>Ilość uczestników: {{ self.participants }}</li>
+        {% endif %}
+
+        {% if self.leaders %}
+          <li>Przewodnicy/organizatorzy: {{ self.leaders }}</li>
+        {% endif %}
+
+        </ul>
+
+    </aside>
+    </div>
+    </div>
+    </div>
+
+    {% if self.carousel_items.all %}
+    <div class="container">
+    <div class="row">
+    <div class="bg-bright col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 no-padding">
+        {% include "demo/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
+    </div>
+    </div>
+    </div>
+    {% endif %}
 
     {% if self.body %}
-        <div class="body-content">
+      <div class="container">
+        <div class="row">
+          <div class="bg-bright col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             {% include "demo/includes/streamfield.html" with content=self.body %}
+          </div>
         </div>
+      </div>
+
     {% endif %}
 
     {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}

@@ -1,7 +1,9 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags static %}
 
 {% if intro %}
-  <div class="well">
-    {{ intro|richtext }}
-  </div>
+    <img src="{% static "demo/images/header-skt-logo.png" %}" />
+    <hr>
+	<div class="intro-text btn btn-default btn-xl sr-button">
+		{{ intro|richtext }}
+	</div>
 {% endif %}

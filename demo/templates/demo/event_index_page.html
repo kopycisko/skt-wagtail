@@ -1,20 +1,50 @@
 {% extends "demo/base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% block content %}
+
+{% block heading %}
     {% include "demo/includes/intro.html" with intro=self.intro only %}
+{% endblock %}
+
+{% block content %}
 
     {# Uses method defined in models.py to retrieve all upcoming events #}
     {# See also standard index for creating a listing with a tag #}
     {% with self.events.all as events %}
         {% if events %}
-            <div class="row no-gutter popup-gallery">
-                {% for event in events %}
-                    {% include "demo/includes/event_list_item.html" %}
-                {% endfor %}
-            </div>
+            <section id="events_list">
+                <div class="row no-gutter">
+                    {% for event in events %}
+                        {% include "demo/includes/event_list_item.html" %}
+                    {% endfor %}
+                </div>
+            </section>
         {% endif %}
     {% endwith %}
+
+        <div class="container">
+        <div class="row">
+        <div class="bg-bright col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <aside id="calendar">
+
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Kalendarz wydarzeń</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+
+            <div class="row no-gutter text-center">
+                <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=9psovl9lscup8lt3hcoa10k02c%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=Europe%2FWarsaw" style=" border-width:0 " width="560" height="600" frameborder="0" scrolling="no">
+
+                </iframe>
+            </div>
+
+        </aside>
+        </div>
+        </div>
+        </div>
 
     {% include "demo/includes/related_links.html" with related_links=self.related_links.all only %}
 {% endblock %}
